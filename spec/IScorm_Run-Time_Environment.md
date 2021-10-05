@@ -2,8 +2,25 @@
 This document contains only those sections of the ADL SCORM 1.2 Runtime that have been changed for the IScorm specification. 
 More about the Advanced Distributed Learning (ADL) Initiative can be found here: http://www.adlnet.org
 
-# IScorm Changes
+- [IScorm Additions](#iscorm-additions)
+  * [Additional API Properties](#additional-api-properties)
+- [IScorm Changes](#iscorm-changes)
+  * [3.3.2.1. SCO To LMS Communications API Details](#3321-sco-to-lms-communications-api-details)
+    + [LMSInitialize](#lmsinitialize)
+    + [LMSFinish](#lmsfinish)
+    + [LMSCommit](#lmscommit)
 
+# IScorm Additions
+
+## Additional API Properties
+Iscorm adds the following properties to the api object
+
+- **ISCORMVersion** (Type:string): The version of IScorm this api implementation implements. Example: 1.0
+- **SCORMVersion** (Type: string): The ADL SCORM version. Always 1.2.
+- **DefaultAsyncOptions** (Type: [IScormAsyncOptions](iscorm-async-options.md)): Default async options for all ASYNC method calls. These options will be used if the options are not 
+passed into the async method call. If only a subset of the options are set when calling an async method then the "unset" options will fall back to the default.
+
+# IScorm Changes
 ## 3.3.2.1. SCO To LMS Communications API Details
 
 ### LMSInitialize
