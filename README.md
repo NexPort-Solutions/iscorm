@@ -1,6 +1,6 @@
 # Improved SCORM 1.2 Specification (IScorm)
 
-The IScorm Spec is a Super Set of the IMS SCORM 1.2 Specification.  IScorm is designed to provide a few missing features to the SCORM 1.2 API while still mostly supporting the original SCORM 1.2 specification. Here are a few goals:
+The IScorm Spec is a Super Set of the ADL SCORM 1.2 Specification.  IScorm is designed to provide a few missing features to the SCORM 1.2 API while still mostly supporting the original SCORM 1.2 specification. Here are a few goals:
 
 - Add ASYNC callbacks to LMSInitialize, LMSCommit and LMSFinish
 - Expose an alternative to the standard window.api object instance that is less generic
