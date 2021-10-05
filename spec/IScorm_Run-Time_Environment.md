@@ -9,7 +9,8 @@ More about the Advanced Distributed Learning (ADL) Initiative can be found here:
     + [LMSInitialize](#lmsinitialize)
     + [LMSFinish](#lmsfinish)
     + [LMSCommit](#lmscommit)
-
+# Getting Started
+An IScorm implementation of the SCORM 1.2 runtime should work fine with the vast majority of SCOs in the field today. The major difference is that the LMSCommit, LMS
 # IScorm Additions
 
 ## Additional API Properties
