@@ -10,7 +10,9 @@ More about the Advanced Distributed Learning (ADL) Initiative can be found here:
     + [LMSFinish](#lmsfinish)
     + [LMSCommit](#lmscommit)
 # Getting Started
-An IScorm implementation of the SCORM 1.2 runtime should work fine with the vast majority of SCOs in the field today. The major difference is that the LMSCommit, LMS
+> **NOTE** Async methods are disabled by default in v1.0 and must be enabled via the `SetAsync` method on the API.
+
+An IScorm implementation of the SCORM 1.2 runtime should work fine with the vast majority of SCOs in the field today. The major difference is that the LMSCommit, LMSInitialize and LMS Finish commands are all async when the SetAsync option is set to true
 # IScorm Additions
 
 ## Additional API Properties
@@ -21,6 +23,18 @@ Iscorm adds the following properties to the api object
 - **DefaultAsyncOptions** (Type: [IScormAsyncOptions](iscorm-async-options.md)): Default async options for all ASYNC method calls. These options will be used if the options are not 
 passed into the async method call. If only a subset of the options are set when calling an async method then the "unset" options will fall back to the default.
 
+## Additional API Methods
+
+### SetAsync
+**Description:** Used to set or get the async property on the API. The default is false. When false the api should behave exactly like the ADL SCORM 1.2 spec.
+If set to true then calls to LMSInitialize, LMSCommit and LMSFinish will be made asyncronously and the asyncOptions of each method must be used to determine if a call failed. 
+
+**Syntax:** SetAsync([boolean _async_])
+
+**boolean async:** Optional parameter set to either true or false. If not set then this method just returns the current setting for async on the api. Default value is false. 
+
+**Return Value:** Current state of the async property, if no parameter is passed in. If a boolean value is passed to the async param then it will set the property to that value and return the new value.
+
 # IScorm Changes
 ## 3.3.2.1. SCO To LMS Communications API Details
 
@@ -30,7 +44,7 @@ going to communicate with the LMS. It allows the LMS to handle LMS
 specific initialization issues. It is a requirement of the SCO that it call this
 function before calling any other API functions.
 
-**Syntax:** LMSInitialize(parameter, [options])
+**Syntax:** LMSInitialize(string _parameter_, [[IScormAsyncOptions](iscorm-async-options.md) _options_])
 
 **Parameter:** "" An empty string must be passed for conformance to this
 standard. Values other than "" are reserved for future extensions.
@@ -74,7 +88,7 @@ LMSInitialize at any previous point. This call signifies two things:
 has been persisted by the LMS.
 2. The SCO has finished communicating with the LMS.
 
-**Syntax**: LMSFinish(parameter, [options])
+**Syntax**: LMSFinish(string _parameter_, [[[IScormAsyncOptions](iscorm-async-options.md) _options_])
 
 **Parameter:** "" An empty string must be passed for conformance to this
 standard. Values other than "" are reserved for future extensions.
@@ -123,7 +137,7 @@ API Adapter.~~ This call ensures to the SCO that the data sent, via an
 LMSSetValue() call, will be persisted by the LMS upon completion of the
 LMSCommit().
 
-**Syntax:** LMSCommit(parameter, [options])
+**Syntax:** LMSCommit(string _parameter_, [[[IScormAsyncOptions](iscorm-async-options.md) _options_])
 
 **Parameter:** "". An empty string must be passed for conformance to this
 standard. Values other than "" are reserved for future extensions.
