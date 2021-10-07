@@ -14,6 +14,8 @@ The getting Started section below links to each of the extended SCORM specs. As 
 - LMSFinish will always return 'true' and to retrieve the error information you must use the asyncOptions parameter
 
 ## Conventions
+- Released versions will be tagged with a versionnumber like 1.0, 1.1, 1.2 etc.
+- Working versions will live on branches named for the major working version (1.x, 2.x, 3.x etc.)
 - This spec will only document changes to the SCORM 2.1 Specification
 - Anything not identified as a change will be assumed to be unchanged from the original spec
 - Every effort will be taken to ensure that this extension does not break the original specification except where listed in the breaking changes above.
