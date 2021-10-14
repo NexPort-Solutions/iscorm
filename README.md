@@ -1,3 +1,4 @@
+![iSCORM Logo](https://user-images.githubusercontent.com/2368069/137387161-222aee59-b206-4ceb-a3c7-38cc1fcec13b.png)
 # Improved SCORM 1.2 Specification (IScorm)
 
 The IScorm Spec is a Super Set of the ADL SCORM 1.2 Specification.  IScorm is designed to provide a few missing features to the SCORM 1.2 API while still mostly supporting the original SCORM 1.2 specification. Here are a few goals:
