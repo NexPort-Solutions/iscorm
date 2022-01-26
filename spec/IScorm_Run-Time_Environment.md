@@ -13,6 +13,16 @@ More about the Advanced Distributed Learning (ADL) Initiative can be found here:
 > **NOTE** Async methods are disabled by default in v1.0 and must be enabled via the `SetAsync` method on the API.
 
 An IScorm implementation of the SCORM 1.2 runtime should work fine with the vast majority of SCOs in the field today. The major difference is that the LMSCommit, LMSInitialize and LMS Finish commands are all async when the SetAsync option is set to true
+## Determining if IScorm is supported by the API
+The easiest way to determine if the SCORM API supports the IScorm spec is to look for the ISCORMVersion property:
+```javascript
+/// This code assumes you have already discovered the scorm api object
+if('ISCORMVersion' in api){
+   /// Treat this like an IScorm API
+}else{
+   /// Treat this like a normal SCORM 1.2 API
+}
+```
 # IScorm Additions
 
 ## Additional API Properties
